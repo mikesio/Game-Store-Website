@@ -1,0 +1,49 @@
+<div class="btn-group" role="group" aria-label="...">
+    <span>Fitler by console</span>
+    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+
+    <form action="/" method="POST">
+      <input type="hidden" name="selectedConsole" value="All">
+      <button type="submit" class="btn btn-default gameFilterBtn {{#if_eq selectedConsole "All"}}active{{/if_eq}}">All</button>
+    </form>
+
+  {{#each console}}
+    <form action="/" method="POST">
+      <input type="hidden" name="selectedConsole" value="{{console}}">
+      <button type="submit" class="btn btn-default gameFilterBtn {{#if_eq console ../selectedConsole}}active{{/if_eq}}">{{console}}</button>
+    </form>
+  {{/each}}
+</div>
+
+
+<div class="row">
+  {{#each games}}
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <img src="/icon/{{imageURL}}" alt="{{name}}">
+        <div class="title">
+          <h3>{{name}}</h3>
+        </div>
+        <div class="caption">
+          <p>{{console}}</p>
+          <p>
+            <form action="/addtocart" method="post">
+              <input name="gameId" id="{{id}}" type="hidden" value="{{id}}">
+              $ {{price}}
+              <input class="addBtn" id="btnAdd_{{id}}" type="button" value="+" onclick="add(1,{{id}})">
+              <input class="quantityDisplay" name="quantity" id="quantity_{{id}}" type=text" value="1">
+              <input class="subBtn" id="btnSub_{{id}}" type="button" value="-" onclick="add(-1,{{id}})">
+              <input class="btn btn-default pull-right" type="submit" value="Add to Cart">
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+<script src="/javascript/updateQuantity.js"></script>
+
+
+

@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">My Cart</div>
+
+  <table class="table">
+  	<thead>
+  		<tr>
+  			<th style="width:50%">Item</th>
+  			<th style="width:16%">Unit Price</th>
+  			<th style="width:16%">Quantity</th>
+  			<th style="width:16%">Subtotal</th>
+  			<th style="width:2%"></th>
+  		</tr>
+  	</thead>
+  	<tbody>
+
+  		{{#each cartList}}
+  		<tr id="{{id}}">
+  			<td>{{name}}</td>
+  			<td class="price">{{price}}</td>
+  			<td class="quantity">
+              	<input class="addBtn" id="btnAdd_{{id}}" type="button" value="+" onclick="add(1,{{id}})">
+              	<input class="quantityDisplay" name="quantity" id="quantity_{{id}}" type="text" value="{{quantity}}" readonly="readonly">
+              	<!--<span class="quantityDisplay" name="quantity" id="quantity_{{id}}">{{quantity}}</span>	-->
+	            <input class="subBtn" id="btnSub_{{id}}" type="button" value="-" onclick="add(-1,{{id}})">
+  			</td>
+  			<td class="subtotal"></td>
+   			<td id="removeItem"><span class="removeItemBtn glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+  			<!--
+  			<td id="removeItem"><button type="submit" class="removeItemBtn btn-link"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+  			-->
+  		</tr>
+  		{{/each}}
+  	</tbody>
+	<tfoot>
+		<tr>
+				<td><a href="/" class="btn btn-default">Continue Shopping</a></td>
+				<td colspan="2"></td>
+				<td id="cartTotal" class="boldText"></td>
+				<td id="checkout"><a class="btn btn-default btn-block">Checkout<i class="fa fa-angle-right"></i></a></td>
+		</tr>
+	</tfoot>
+  </table>
+</div>
+
+<script src="/javascript/manageCart.js"></script>

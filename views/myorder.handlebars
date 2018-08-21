@@ -1,0 +1,35 @@
+{{#each orders as |order|}}
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <div class="pull-left">Order#{{order.order_id}} ({{order.date}})</div>  
+      <div class="pull-right">Total ${{order.total}}</div>  
+    </div>
+
+    <table class="table">
+
+    	<thead>
+    		<tr>
+    			<th style="width:50%">Item</th>
+    			<th style="width:16%">Unit Price</th>
+    			<th style="width:16%">Quantity</th>
+    			<th style="width:16%">Subtotal</th>
+    			<th style="width:2%"></th>
+    		</tr>
+    	</thead>
+
+    	<tbody>
+        {{#each ../orderDetails as |orderDetail|}}
+          {{#if_eq orderDetail.order_id order.order_id}}
+        		<tr>
+        			<td>{{orderDetail.name}} <small>({{orderDetail.console}})</small></td>
+        			<td>{{orderDetail.price}}</td>
+        			<td>{{orderDetail.quantity}}</td>
+              <td>{{orderDetail.subtotal}}</td>
+        		</tr>
+          {{/if_eq}}
+    		{{/each}}
+    	</tbody>
+
+    </table>
+  </div>
+{{/each}}

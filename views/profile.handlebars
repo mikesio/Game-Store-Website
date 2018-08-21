@@ -1,0 +1,23 @@
+<form action="/updateAddress" method="post"> 
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Change Address</h3>
+	  </div>
+	  <div class="panel-body">
+	  	<input type="hidden" name="oldAddress" value="{{address}}">
+
+		<input name="address" type="text" class="form-control" value="{{#if address}}{{address}}{{else}}{{oldaddress}}{{/if}}" aria-describedby="basic-addon1">
+
+	  </div>
+	  <div class="panel-body">
+	  	<input class="btn btn-default" type="submit" value="Update">
+	  </div>
+	</div>
+</form>
+
+
+{{#if addressError}}
+	{{#each addressError}}
+		<div class="alert alert-danger" role="alert">{{msg}}</div>
+	{{/each}}
+{{/if}}

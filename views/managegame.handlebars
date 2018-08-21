@@ -1,0 +1,70 @@
+<!--add game-->
+<form method="post" enctype="multipart/form-data" action="/upload">
+  <div class="panel panel-default">
+    <div class="panel-heading">Add a new game</div>
+
+    <table class="table">
+      <thead>
+
+        <tr>
+          <th style="width:20%">Thumbnail</th>
+          <th style="width:30%">Name</th>
+          <th style="width:25%">Console</th>
+          <th style="width:20%">Price</th>
+          <th style="width:5%"></th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        <td><input type="file" name="myImage" class="form-control-file"></td>
+        <td><input type="text" name="name" class="form-control"></td>
+        <td><input type="text" name="console" class="form-control"></td>
+        <td><input type="text" name="price" class="form-control"></td>
+        <td>
+          <input type="submit" class="btn btn-default" value="Add">
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</form>
+
+<!--change game selling status-->
+<div class="panel panel-default">
+  <div class="panel-heading">Manage games selling status</div>
+
+  <table class="table">
+  	<thead>
+  		<tr>
+  			<th style="width:20%">Thumbnail</th>
+  			<th style="width:25%">Name</th>
+  			<th style="width:25%">Console</th>
+  			<th style="width:15%">Price</th>
+  			<th style="width:15%">Change status to</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+
+  		{{#each games}}
+    		<tr id="{{id}}">
+          <td class="manageThumbnail"><img src="/icon/{{imageURL}}" alt="{{name}}"></td>
+    			<td>{{name}}</td>
+    			<td>{{console}}</td>
+    			<td>{{price}}</td>
+     			<td>
+            {{#if_eq selling 1}}
+              <a class="btn btn-default btn-danger notSellBtn" role="button">stop selling</a>
+            {{else}}
+              <a class="btn btn-default btn-success sellingBtn" role="button">Launch to sell</a>
+            {{/if_eq}}
+          </td>
+    		</tr>
+  		{{/each}}
+
+  	</tbody>
+  </table>
+</div>
+
+<script src="/javascript/manageGame.js"></script>

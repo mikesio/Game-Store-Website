@@ -1,0 +1,50 @@
+.thumbnail .title{
+	padding-left: 10px;
+	height:50px;
+}
+
+.thumbnail img{
+	max-height:150px;
+}
+
+.manageThumbnail img{
+	max-height:150px;
+}
+
+.thumbnail .addBtn, .subBtn{
+	width:24px;
+}
+
+.quantityDisplay{
+	width:24px;
+}
+
+.boldText{
+    font-weight: bold;
+}
+
+.glyphicon{
+
+	cursor: pointer;
+}
+
+.panel-body{
+	padding-top: 3px;
+}
+
+.panel-heading{
+	margin-bottom: 10px;
+}
+
+small { 
+    font-size: smaller;
+    color:gray;
+}
+
+.btn-group form{
+	display:inline
+}
+
+.btn-group{
+	margin-bottom: 15px;
+}
